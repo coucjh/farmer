@@ -1,7 +1,11 @@
-wget
-sklearn
-pandas
-seaborn
-matplotlib
-dvc
+setuptools
 scikit-learn
+matplotlib
+pandas
+numpy
+mlflow
+dvc
+mlem
+matplotlib
+seaborn
+wget

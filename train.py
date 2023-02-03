@@ -11,6 +11,7 @@ import json
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.impute import SimpleImputer
+from mlem.api import save
 
 df = pd.read_csv("data_processed.csv")
 
@@ -29,8 +30,8 @@ X = imp.transform(X)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 # Linear model
-clf = LogisticRegression()
-# clf = QuadraticDiscriminantAnalysis()
+# clf = LogisticRegression()
+clf = QuadraticDiscriminantAnalysis()
 clf.fit(X_train, y_train)
 
 # yhat = cross_val_predict(clf, X, y, cv=5)
@@ -56,3 +57,5 @@ sns.set_color_codes("dark")
 ax = sns.barplot(x="region", y="pred_accuracy", data=df, palette = "Greens_d")
 ax.set(xlabel="Region", ylabel = "Model accuracy")
 plt.savefig("by_region.png",dpi=80)
+
+save(clf, "models/clf", sample_data=X_train)
