@@ -47,8 +47,6 @@ with open("metrics.json", 'w') as outfile:
 
 # Let's visualize within several slices of the dataset
 score = yhat == y
-print(yhat)
-print(score)
 score_int = [int(s) for s in score]
 df['pred_accuracy'] = score_int
 
