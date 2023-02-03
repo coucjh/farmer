@@ -7,7 +7,6 @@ mlflow
 dvc
 dvc-gdrive
 mlem
-'mlem[fastapi]'
 matplotlib
 seaborn
 wget
