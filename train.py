@@ -29,8 +29,8 @@ X = imp.transform(X)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 # Linear model
-clf = LogisticRegression()
-# clf = QuadraticDiscriminantAnalysis()
+# clf = LogisticRegression()
+clf = QuadraticDiscriminantAnalysis()
 clf.fit(X_train, y_train)
 
 # yhat = cross_val_predict(clf, X, y, cv=5)
