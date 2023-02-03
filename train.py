@@ -58,4 +58,4 @@ ax = sns.barplot(x="region", y="pred_accuracy", data=df, palette = "Greens_d")
 ax.set(xlabel="Region", ylabel = "Model accuracy")
 plt.savefig("by_region.png",dpi=80)
 
-save(lr, "models/lr", sample_data=train_x)
+save(clf, "models/clf", sample_data=X_train)
