@@ -11,7 +11,7 @@ import json
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.impute import SimpleImputer
-from mlem.api import save
+# from mlem.api import save
 
 df = pd.read_csv("data_processed.csv")
 
@@ -58,4 +58,4 @@ ax = sns.barplot(x="region", y="pred_accuracy", data=df, palette = "Greens_d")
 ax.set(xlabel="Region", ylabel = "Model accuracy")
 plt.savefig("by_region.png",dpi=80)
 
-save(clf, "models/clf", sample_data=X_train)
+# save(clf, "models/clf", sample_data=X_train)

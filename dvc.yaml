@@ -19,8 +19,8 @@ stages:
     - data_processed.csv
     outs:
     - by_region.png
-    - models/clf
-    - models/clf.mlem
+    # - models/clf
+    # - models/clf.mlem
     metrics:
     - metrics.json:
         cache: false

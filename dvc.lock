@@ -30,18 +30,12 @@ stages:
       md5: 03269b6c0a766dc80e090326008765b3
       size: 24227
     - path: train.py
-      md5: 990ff64180718d1f6aa2c128b278e3b7
+      md5: a7fbea84d68684e92e04378c98119a14
       size: 1794
     outs:
     - path: by_region.png
-      md5: 60006129bed460750575966df3fb4657
-      size: 7902
+      md5: 646c102cc2c19dd7f48b661ff69f88ad
+      size: 7882
     - path: metrics.json
-      md5: a16ecf50940a5e1d42c1820eb34bb9aa
+      md5: 5cb286e2679df2c5556e07c5b869b6ca
       size: 89
-    - path: models/clf
-      md5: 8361c8cb5757a3e763fe790e038208ba
-      size: 57748
-    - path: models/clf.mlem
-      md5: 1ecd11eed61175f82a95f16097d44756
-      size: 985
