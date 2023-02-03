@@ -1,0 +1,5 @@
+[core]
+    remote = farmer-remote
+['remote "farmer-remote"']
+    url = gdrive://1sqZBQEHbBPIt0cYQ9sUQhPj1HfhNIPUu
+    gdrive_acknowledge_abuse = true
