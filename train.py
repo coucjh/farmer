@@ -1,6 +1,7 @@
 import pandas as pd 
 import numpy as np
 from sklearn.linear_model import LogisticRegression
+from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis 
 from sklearn import preprocessing
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import confusion_matrix
@@ -26,10 +27,14 @@ imp = SimpleImputer(missing_values=np.nan, strategy='mean')
 imp.fit(X)
 X = imp.transform(X)
 
-
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 # Linear model
 clf = LogisticRegression()
-yhat = cross_val_predict(clf, X, y, cv=5)
+# clf = QuadraticDiscriminantAnalysis()
+clf.fit(X_train, y_train)
+
+# yhat = cross_val_predict(clf, X, y, cv=5)
+yhat = clf.predict(X)
 
 acc = np.mean(yhat==y)
 tn, fp, fn, tp = confusion_matrix(y, yhat).ravel()
@@ -42,6 +47,8 @@ with open("metrics.json", 'w') as outfile:
 
 # Let's visualize within several slices of the dataset
 score = yhat == y
+print(yhat)
+print(score)
 score_int = [int(s) for s in score]
 df['pred_accuracy'] = score_int
 
