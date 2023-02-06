@@ -27,5 +27,5 @@ jobs:
           cml-publish by_region.png --md >> report.md
           cml-send-comment report.md    
           cat report.md
-          # cml comment create report.md
+          cml comment create report.md
           echo "## Report sent"
