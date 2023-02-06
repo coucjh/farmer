@@ -1,11 +1,23 @@
 name: farmers
-on: [push]
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    branches:
+      - master
 jobs:
   run:
     runs-on: [ubuntu-latest]
-    container: docker://dvcorg/cml-py3:latest
+    # container: ghcr.io/iterative/cml:0-dvc2-base1
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - uses: iterative/setup-cml@v1
+      - uses: iterative/setup-dvc@v1
       - name: cml_run
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -14,15 +26,17 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
           pip install 'dvc[gdrive]'
+          pip install 'mlem[docker]'
           dvc pull --run-cache
           dvc repro 
 
           git fetch --prune
-          # dvc metrics diff --show-md master >> report.md
+          dvc metrics diff --show-md master >> report.md
+          dvc push
 
           # Add figure to the report
           echo "## Validating results by region"
           cml-publish by_region.png --md >> report.md
-          cml-send-comment report.md
-          # cml comment create report.md
+          cat report.md
+          cml comment create --pr --publish report.md
           echo "## Report sent"
