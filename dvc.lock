@@ -34,8 +34,14 @@ stages:
       size: 1794
     outs:
     - path: by_region.png
-      md5: 646c102cc2c19dd7f48b661ff69f88ad
-      size: 7882
+      md5: acbc02bf692cec5f39f96570518de327
+      size: 7881
     - path: metrics.json
       md5: 5cb286e2679df2c5556e07c5b869b6ca
       size: 89
+    - path: models/clf
+      md5: 2ee9de1f3ca0ae52ee8d83664e60a420
+      size: 1367
+    - path: models/clf.mlem
+      md5: 674651fb73c6549f74499b2b17cb0ec9
+      size: 984
