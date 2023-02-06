@@ -36,7 +36,7 @@ jobs:
 
           # Add figure to the report
           echo "## Validating results by region"
-          cml comment by_region.png --md >> report.md
+          cml-publish by_region.png --md >> report.md
           cat report.md
           cml comment create --pr --publish report.md
           echo "## Report sent"
